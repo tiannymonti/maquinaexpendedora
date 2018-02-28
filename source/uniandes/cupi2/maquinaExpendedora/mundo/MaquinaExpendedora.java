@@ -1,7 +1,7 @@
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad  de  los Andes   (Bogot· - Colombia)
- * Departamento de  IngenierÌa  de  Sistemas    y   ComputaciÛn
- * Licenciado   bajo    el  esquema Academic Free License versiÛn 2.1
+ * Universidad  de  los Andes   (Bogot√° - Colombia)
+ * Departamento de  Ingenier√≠a  de  Sistemas    y   Computaci√≥n
+ * Licenciado   bajo    el  esquema Academic Free License versi√≥n 2.1
  *      
  * Proyecto Cupi2   (http://cupi2.uniandes.edu.co)
  * Ejercicio: n2_maquinaExpendedora
@@ -14,7 +14,7 @@ package uniandes.cupi2.maquinaExpendedora.mundo;
 import uniandes.cupi2.maquinaExpendedora.mundo.Producto.Tipo;
 
 /**
- * Representa la m·quina expendedora.
+ * Representa la m√°quina expendedora.
  */
 public class MaquinaExpendedora
 {
@@ -23,30 +23,30 @@ public class MaquinaExpendedora
 	// -----------------------------------------------------------------
 
 	/**
-	 * Producto 1 de la m·quina expendedora.
+	 * Producto 1 de la m√°quina expendedora.
 	 */
 	private Producto producto1;
 
 	/**
-	 * Producto 2 de la m·quina expendedora.
+	 * Producto 2 de la m√°quina expendedora.
 	 */
 	private Producto producto2;
 
 	/**
-	 * Producto 3 de la m·quina expendedora.
+	 * Producto 3 de la m√°quina expendedora.
 	 */
 	private Producto producto3;
 
 	/**
-	 * Producto 4 de la m·quina expendedora.
+	 * Producto 4 de la m√°quina expendedora.
 	 */
 	private Producto producto4;
 
 	/**
-	 * CrÈdito disponible en la m·quina.
+	 * Cr√©dito disponible en la m√°quina.
 	 */
 
-	//TODO Parte 3 Punto A: Declarar la relaciÛn credito seg˙n el modelo del mundo.
+	//TODO Parte 3 Punto A: Declarar la relaci√≥n credito seg√∫n el modelo del mundo.
 	private Monto credito;
 
 
@@ -55,8 +55,8 @@ public class MaquinaExpendedora
 	// -----------------------------------------------------------------
 
 	/**
-	 * Construye una nueva m·quina expendedora. <br>
-	 * <b>post: </b> Los 4 productos se inicializaron con sus valores iniciales y se inicializÛ el crÈdito. <br>
+	 * Construye una nueva m√°quina expendedora. <br>
+	 * <b>post: </b> Los 4 productos se inicializaron con sus valores iniciales y se inicializ√≥ el cr√©dito. <br>
 	 */
 	public MaquinaExpendedora()
 	{
@@ -64,32 +64,33 @@ public class MaquinaExpendedora
 		producto2 = new Producto( "A2", "Jugo Hit", 2000, true, Tipo.BEBIDA  );
 		producto3 = new Producto( "B1", "Chocolatina Jet", 450, false , Tipo.COMIDA );
 		producto4 = new Producto( "B2", "Galletas Festival", 800, false, Tipo.COMIDA );
-		// TODO Parte 3 Punto B: Hacer las modificaciones necesarias para que se incluyan los nuevos par·metros del constructor de la clase Producto. 
-		//                       Completar el mÈtodo constructor de la clase seg˙n la documentaciÛn dada.
+		// TODO Parte 3 Punto B: Hacer las modificaciones necesarias para que se incluyan los nuevos par√°metros del constructor de la clase Producto. 
+		//                       Completar el m√©todo constructor de la clase seg√∫n la documentaci√≥n dada.
+		credito = new Monto();
 	} 
 
 	// -----------------------------------------------------------------
-	// MÈtodos
+	// M√©todos
 	// -----------------------------------------------------------------
 
 	/**
-	 * Retorna el valor del crÈdito disponible en la m·quina.
-	 * @return Valor del crÈdito de la m·quina.
+	 * Retorna el valor del cr√©dito disponible en la m√°quina.
+	 * @return Valor del cr√©dito de la m√°quina.
 	 */
-	//TODO Parte 3 Punto C: Declarar y completar el mÈtodo darValorCredito seg˙n la documentaciÛn dada y el modelo conceptual.
+	//TODO Parte 3 Punto C: Declarar y completar el m√©todo darValorCredito seg√∫n la documentaci√≥n dada y el modelo conceptual.
 	public double darValorCredito()
 	{
 		return credito.darValorTotal( );
 	}
 	/**
-	 * Retorna el producto con el identificador recibido por par·metro. <br>
+	 * Retorna el producto con el identificador recibido por par√°metro. <br>
 	 * <b>pre: </b> Existe un producto con el identificador dado.
 	 * @param pIdentificador Identificador del producto buscado. pIdentificador != null && pIdentificador != "".
 	 * @return Producto con el identificador dado.
 	 */
 	public Producto darProducto( String pIdentificador )
 	{
-		//TODO Parte 3 Punto D: Complete el mÈtodo seg˙n la documentaciÛn dada.
+		//TODO Parte 3 Punto D: Complete el m√©todo seg√∫n la documentaci√≥n dada.
 		Producto rta= null;
 		if( producto1.darIdentificador( ).equals(pIdentificador))
 		{
@@ -110,14 +111,14 @@ public class MaquinaExpendedora
 		return rta;
 	}
 	/**
-	 * Agrega una moneda al crÈdito de la m·quina.<br>
-	 * <b> post: </b> Se agregÛ la moneda al crÈdito.
-	 * @param pMoneda DenominaciÛn de la moneda. pMoneda = { Monto.MONEDA_50 , Monto.MONEDA_100 , Monto.MONEDA_200, Monto.MONEDA_500 , Monto.MONEDA_1000}.
-	 * @return True si pudo agregar la moneda, false si superaba el valor m·ximo.
+	 * Agrega una moneda al cr√©dito de la m√°quina.<br>
+	 * <b> post: </b> Se agreg√≥ la moneda al cr√©dito.
+	 * @param pMoneda Denominaci√≥n de la moneda. pMoneda = { Monto.MONEDA_50 , Monto.MONEDA_100 , Monto.MONEDA_200, Monto.MONEDA_500 , Monto.MONEDA_1000}.
+	 * @return True si pudo agregar la moneda, false si superaba el valor m√°ximo.
 	 */
 	public boolean agregarMoneda( int pMoneda )
 	{
-		// TODO Parte 3 Punto E: Complete el mÈtodo seg˙n la documentaciÛn dada.
+		// TODO Parte 3 Punto E: Complete el m√©todo seg√∫n la documentaci√≥n dada.
 		boolean rta = false;
 		if (credito.agregarMoneda(pMoneda) == true)
 		{ rta = true;
@@ -128,14 +129,14 @@ public class MaquinaExpendedora
 	/**
 	 * Compra una unidad del producto con el identificador dado. <br>
 	 * <b> pre: </b> Existe un producto con el identificador dado. <br>
-	 * <b> post: </b>Si hay crÈdito y unidades suficientes se realiza la compra y se cambia el valor del crÈdito actual.<br>
+	 * <b> post: </b>Si hay cr√©dito y unidades suficientes se realiza la compra y se cambia el valor del cr√©dito actual.<br>
 	 * @param pIdentificador identificador del producto. pIdentificador != null && pIdentificador != "".
-	 * @return Retorna true si se realizÛ la compra, false si no hay crÈdito suficiente o no habÌan unidades disponible.
+	 * @return Retorna true si se realiz√≥ la compra, false si no hay cr√©dito suficiente o no hab√≠an unidades disponible.
 	 */
 	public boolean comprarProducto( String pIdentificador )
 	{
 
-		// TODO Parte 3 Punto F: Complete el mÈtodo seg˙n la documentaciÛn dada y las restricciones.
+		// TODO Parte 3 Punto F: Complete el m√©todo seg√∫n la documentaci√≥n dada y las restricciones.
 		boolean rta= false;
 		Producto buscado = darProducto(pIdentificador);
 		if (credito.darValorTotal()>= buscado.darPrecio())
@@ -152,7 +153,7 @@ public class MaquinaExpendedora
 
 	/**
 	 * Termina la compra y retorna el cambio.<br>
-	 * <b>post:<\b> Calcula el monto de dinero que se debe dar como cambio y reinicia el crÈdito.
+	 * <b>post:<\b> Calcula el monto de dinero que se debe dar como cambio y reinicia el cr√©dito.
 	 * @return Monto de dinero correspondiente al cambio.
 	 */
 	public Monto terminarCompra( )
@@ -164,8 +165,8 @@ public class MaquinaExpendedora
 	}
 
 	/**
-	 * Calcula la cantidad total de unidades compradas de la m·quina.
-	 * @return Cantidad total de unidades compradas de la m·quina.
+	 * Calcula la cantidad total de unidades compradas de la m√°quina.
+	 * @return Cantidad total de unidades compradas de la m√°quina.
 	 */
 	public int darCantidadTotalUnidadesCompradas( )
 	{
@@ -174,8 +175,8 @@ public class MaquinaExpendedora
 	}
 
 	/**
-	 * Calcula el valor total de las compras de la m·quina.
-	 * @return Valor total de las compras de la m·quina.
+	 * Calcula el valor total de las compras de la m√°quina.
+	 * @return Valor total de las compras de la m√°quina.
 	 */
 	public double darValorTotalCompras( )
 	{
@@ -185,24 +186,24 @@ public class MaquinaExpendedora
 	}
 
 	/**
-	 * Calcula el porcentaje de disponibilidad de la m·quina.
-	 * @return Porcentaje de disponibilidad de la m·quina.
+	 * Calcula el porcentaje de disponibilidad de la m√°quina.
+	 * @return Porcentaje de disponibilidad de la m√°quina.
 	 */
 	public double darPorcentajeDisponibilidad( )
 	{
-		// TODO Parte 3 Punto G: Complete el mÈtodo seg˙n la documentaciÛn dada y la definiciÛn de la funcionalidad.
+		// TODO Parte 3 Punto G: Complete el m√©todo seg√∫n la documentaci√≥n dada y la definici√≥n de la funcionalidad.
 		double suma = producto1.darCantidadUnidadesDisponibles() +producto2.darCantidadUnidadesDisponibles() +producto3.darCantidadUnidadesDisponibles() +producto4.darCantidadUnidadesDisponibles();
 		return ( 100 -( suma / Producto.CAPACIDAD *4 ) *100);
 	}
 
 	/**
-	 * Retorna el valor total de la donaciÛn al FOPRE de productos del tipo especificado.
-	 * @param pTipo Tipo de producto de interÈs. pTipo pertenece a {Tipo.BEBIDA , Tipo.COMIDA}.
-	 * @return Total de donaciÛn al FOPRE del tipo de producto.
+	 * Retorna el valor total de la donaci√≥n al FOPRE de productos del tipo especificado.
+	 * @param pTipo Tipo de producto de inter√©s. pTipo pertenece a {Tipo.BEBIDA , Tipo.COMIDA}.
+	 * @return Total de donaci√≥n al FOPRE del tipo de producto.
 	 */
 	public double darDonacionPorTipo( Tipo pTipo )
 	{
-		// TODO Parte 3 Punto H: Complete el mÈtodo seg˙n la documentaciÛn dada.
+		// TODO Parte 3 Punto H: Complete el m√©todo seg√∫n la documentaci√≥n dada.
 		double donacion = 0;
 		if(producto1.darTipo().equals(pTipo) && producto1.esFopre()== true );
 		{
@@ -224,13 +225,13 @@ public class MaquinaExpendedora
 	}
 
 	/**
-	 * Retorna el total de unidades FOPRE compradas para un tipo especÌfico.
-	 * @param pTipo Tipo de producto de interÈs. pTipo pertenece a {Tipo.BEBIDA , Tipo.COMIDA}.
+	 * Retorna el total de unidades FOPRE compradas para un tipo espec√≠fico.
+	 * @param pTipo Tipo de producto de inter√©s. pTipo pertenece a {Tipo.BEBIDA , Tipo.COMIDA}.
 	 * @return La suma de las unidades compradas de los productos FOPRE del tipo dado.
 	 */
 	public int darCantidadUnidadesCompradasFopre( Tipo pTipo )
 	{
-		// TODO Parte 3 Punto I: Complete el mÈtodo seg˙n la documentaciÛn dada.
+		// TODO Parte 3 Punto I: Complete el m√©todo seg√∫n la documentaci√≥n dada.
 		int unidades= 0;
 		if( producto1.esFopre() == true && producto1.darTipo().equals(pTipo));
 		{
@@ -253,12 +254,12 @@ public class MaquinaExpendedora
 	}
 
 	/**
-	 * Retorna el producto m·s comprado.
-	 * @return Producto m·s comprado. Si hay dos productos con la mayor cantidad de unidades compradas, se retorna el primero encontrado.
+	 * Retorna el producto m√°s comprado.
+	 * @return Producto m√°s comprado. Si hay dos productos con la mayor cantidad de unidades compradas, se retorna el primero encontrado.
 	 */
 	public Producto darProductoMasComprado( )
 	{
-		// TODO Parte 3 Punto J: Complete el mÈtodo seg˙n la documentaciÛn dada.
+		// TODO Parte 3 Punto J: Complete el m√©todo seg√∫n la documentaci√≥n dada.
 		{
 			int venta1 = producto1.darCantidadUnidadesCompradas( );
 			int venta2 = producto2.darCantidadUnidadesCompradas( );
@@ -293,21 +294,21 @@ public class MaquinaExpendedora
 	}
 
 	/**
-	 * Retorna el valor total de la donaciÛn al FOPRE.
-	 * @return DonaciÛn total al FOPRE.
+	 * Retorna el valor total de la donaci√≥n al FOPRE.
+	 * @return Donaci√≥n total al FOPRE.
 	 */
-	// TODO Parte 3 Punto K: Declarar y completar el mÈtodo darDonacionTotal seg˙n la documentaciÛn dada y el modelo conceptual.
+	// TODO Parte 3 Punto K: Declarar y completar el m√©todo darDonacionTotal seg√∫n la documentaci√≥n dada y el modelo conceptual.
 	public double darDonacionTotal()
 	{
 		double suma = producto1.calcularDonacionFopre() + producto2.calcularDonacionFopre() + producto3.calcularDonacionFopre() + producto4.calcularDonacionFopre();
 		return suma;
 	}
 	// -----------------------------------------------------------------
-	// Puntos de ExtensiÛn
+	// Puntos de Extensi√≥n
 	// -----------------------------------------------------------------
 
 	/**
-	 * ExtensiÛn 1.
+	 * Extensi√≥n 1.
 	 * @return Respuesta1.
 	 */
 	public String metodo1( )
@@ -316,7 +317,7 @@ public class MaquinaExpendedora
 	}
 
 	/**
-	 * ExtensiÛn 2.
+	 * Extensi√≥n 2.
 	 * @return Respuesta2.
 	 */
 	public String metodo2( )
