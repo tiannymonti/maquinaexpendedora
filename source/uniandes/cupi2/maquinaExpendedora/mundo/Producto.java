@@ -1,7 +1,7 @@
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * Universidad	de	los	Andes	(Bogotá	- Colombia)
- * Departamento	de	Ingeniería	de	Sistemas	y	Computación
- * Licenciado	bajo	el	esquema	Academic Free License versión 2.1
+ * Universidad	de	los	Andes	(BogotÃ¡	- Colombia)
+ * Departamento	de	IngenierÃ­a	de	Sistemas	y	ComputaciÃ³n
+ * Licenciado	bajo	el	esquema	Academic Free License versiÃ³n 2.1
  * 		
  * Proyecto	Cupi2	(http://cupi2.uniandes.edu.co)
  * Ejercicio: n2_maquinaExpendedora
@@ -12,7 +12,7 @@
 package uniandes.cupi2.maquinaExpendedora.mundo;
 
 /**
- * Representa un producto de la máquina expendedora.
+ * Representa un producto de la mÃ¡quina expendedora.
  */
 public class Producto
 {
@@ -22,9 +22,9 @@ public class Producto
 	// -----------------------------------------------------------------
 
 	/**
-	 * Enumeración que define los tipos de producto que pueden existir.
+	 * EnumeraciÃ³n que define los tipos de producto que pueden existir.
 	 */
-	// TODO Parte 1 Punto A: Declarar la enumeración Tipo según el modelo del mundo.
+	// TODO Parte 1 Punto A: Declarar la enumeraciÃ³n Tipo segÃºn el modelo del mundo.
 	public enum Tipo
 	{
 		BEBIDA,
@@ -36,15 +36,15 @@ public class Producto
 	// -----------------------------------------------------------------
 
 	/**
-	 * Constante que representa el porcentaje de donación al FOPRE.
+	 * Constante que representa el porcentaje de donaciÃ³n al FOPRE.
 	 */
-	// TODO Parte 1 Punto B: Declarar la constante PORCENTAJE_FOPRE según el modelo del mundo.
+	// TODO Parte 1 Punto B: Declarar la constante PORCENTAJE_FOPRE segÃºn el modelo del mundo.
 	public final static double PORCENTAJE_FOPRE= 0.06;
 
 	/**
-	 * Contante que representa la cantidad máxima de unidades que se puede tener de un producto.
+	 * Contante que representa la cantidad mÃ¡xima de unidades que se puede tener de un producto.
 	 */
-	// TODO Parte 1 Punto C: Declarar la constante CAPACIDAD según el modelo del mundo.
+	// TODO Parte 1 Punto C: Declarar la constante CAPACIDAD segÃºn el modelo del mundo.
 	public final static int CAPACIDAD = 10;
 	// -----------------------------------------------------------------
 	// Atributos
@@ -78,13 +78,13 @@ public class Producto
 	/**
 	 * Tipo del producto.
 	 */
-	// TODO Parte 1 Punto D: Declarar el atributo tipo según el modelo del mundo.
+	// TODO Parte 1 Punto D: Declarar el atributo tipo segÃºn el modelo del mundo.
 	private Tipo tipo;
 
 	/**
 	 * Atributo que indica si el producto dona parte de sus ganancias al programa FOPRE.
 	 */
-	// TODO Parte 1 Punto E: Declarar el atributo fopre según el modelo del mundo.
+	// TODO Parte 1 Punto E: Declarar el atributo fopre segÃºn el modelo del mundo.
 	private boolean fopre;
 
 	// -----------------------------------------------------------------
@@ -92,10 +92,10 @@ public class Producto
 	// -----------------------------------------------------------------
 
 	/**
-	 * Crea un producto usando la información recibida por parámetro. <br>
-	 * <b>post: </b> Se inicializó la cantidad de unidades compradas en 0. <br>
-	 * Se inicializó la cantidad de unidades disponibles con la capacidad. <br>
-	 * Se inicializaron los atributos nombre, identificador, precio, fopre y tipo con los valores recibidos por parámetro. <br>
+	 * Crea un producto usando la informaciÃ³n recibida por parÃ¡metro. <br>
+	 * <b>post: </b> Se inicializÃ³ la cantidad de unidades compradas en 0. <br>
+	 * Se inicializÃ³ la cantidad de unidades disponibles con la capacidad. <br>
+	 * Se inicializaron los atributos nombre, identificador, precio, fopre y tipo con los valores recibidos por parÃ¡metro. <br>
 	 * @param pIdentificador Identificador del producto. pIdentificador != null && pIdentificador != "".
 	 * @param pNombre Nombre del producto. pNombre != null && pNombre != "".
 	 * @param pPrecio Precio del producto. pPrecio >= 50.
@@ -112,13 +112,13 @@ public class Producto
 		fopre = pFopre;
 		tipo = pTipo;
 
-		// TODO Parte 1 Punto F: Completar el método constructor de la clase.
-		// Inicializar los nuevos atributos con la información recibida por parámetro.
-		// Inicializar el atributo cantidadUnidadesDisponibles según la nueva especificación.
+		// TODO Parte 1 Punto F: Completar el mÃ©todo constructor de la clase.
+		// Inicializar los nuevos atributos con la informaciÃ³n recibida por parÃ¡metro.
+		// Inicializar el atributo cantidadUnidadesDisponibles segÃºn la nueva especificaciÃ³n.
 	}
 
 	// -----------------------------------------------------------------
-	// Métodos
+	// MÃ©todos
 	// -----------------------------------------------------------------
 
 	/**
@@ -170,33 +170,28 @@ public class Producto
 	 * Retorna el tipo del producto.
 	 * @return Tipo del producto.
 	 */
-	//TODO Parte 1 Punto G: Declarar y completar el método darTipo según la documentación dada y el modelo conceptual.
+	//TODO Parte 1 Punto G: Declarar y completar el mÃ©todo darTipo segÃºn la documentaciÃ³n dada y el modelo conceptual.
 	public Tipo darTipo()
 	{
 		return tipo;
 	}
 	/**
 	 * Indica si el producto dona parte de sus ganancias al programa FOPRE.
-	 * @return Retorna true si el producto está asociado al FOPRE, false en caso contrario.
+	 * @return Retorna true si el producto estÃ¡ asociado al FOPRE, false en caso contrario.
 	 */
 	public boolean esFopre( )
 	{
-		boolean rta = false;
-		if(fopre == true);
-		{
-			rta = true;
-		}
-		return rta;
+		return fopre;
 	}
 
 	/**
 	 * Compra una unidad del producto si hay unidades disponibles. <br>
-	 * <b>post: </b> Si habían unidades disponibles, se disminuyó la cantidad de unidades disponibles y aumentó la cantidad de unidades compradas. <br>
-	 * @return True si se realizó la compra, false en caso de no haber disponibilidad.
+	 * <b>post: </b> Si habÃ­an unidades disponibles, se disminuyÃ³ la cantidad de unidades disponibles y aumentÃ³ la cantidad de unidades compradas. <br>
+	 * @return True si se realizÃ³ la compra, false en caso de no haber disponibilidad.
 	 */
 	public boolean comprar( )
 	{
-		//TODO Parte 1 Punto H: Modificar el método para que tenga en cuenta la documentación dada y las restricciones.
+		//TODO Parte 1 Punto H: Modificar el mÃ©todo para que tenga en cuenta la documentaciÃ³n dada y las restricciones.
 		boolean rta = false;
 		if (cantidadUnidadesDisponibles>0)
 		{
@@ -208,10 +203,10 @@ public class Producto
 	}
 
 	/**
-	 * Retorna el valor de la donación de este producto al FOPRE.
-	 * @return donación al FOPRE.
+	 * Retorna el valor de la donaciÃ³n de este producto al FOPRE.
+	 * @return donaciÃ³n al FOPRE.
 	 */
-	//TODO Parte 1 Punto I: Declarar y completar el método calcularDonacionFopre según la documentación dada y el modelo conceptual.
+	//TODO Parte 1 Punto I: Declarar y completar el mÃ©todo calcularDonacionFopre segÃºn la documentaciÃ³n dada y el modelo conceptual.
 	public double calcularDonacionFopre()
 	{
 		double rta = 0;
