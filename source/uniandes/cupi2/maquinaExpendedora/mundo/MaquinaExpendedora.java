@@ -64,9 +64,10 @@ public class MaquinaExpendedora
 		producto2 = new Producto( "A2", "Jugo Hit", 2000, true, Tipo.BEBIDA  );
 		producto3 = new Producto( "B1", "Chocolatina Jet", 450, false , Tipo.COMIDA );
 		producto4 = new Producto( "B2", "Galletas Festival", 800, false, Tipo.COMIDA );
+		credito = new Monto();
 		// TODO Parte 3 Punto B: Hacer las modificaciones necesarias para que se incluyan los nuevos parámetros del constructor de la clase Producto. 
 		//                       Completar el método constructor de la clase según la documentación dada.
-		credito = new Monto();
+		
 	} 
 
 	// -----------------------------------------------------------------
@@ -119,11 +120,7 @@ public class MaquinaExpendedora
 	public boolean agregarMoneda( int pMoneda )
 	{
 		// TODO Parte 3 Punto E: Complete el método según la documentación dada.
-		boolean rta = false;
-		if (credito.agregarMoneda(pMoneda) == true)
-		{ rta = true;
-		}
-		return rta;
+		return credito.agregarMoneda(pMoneda);
 	}
 
 	/**
@@ -139,14 +136,14 @@ public class MaquinaExpendedora
 		// TODO Parte 3 Punto F: Complete el método según la documentación dada y las restricciones.
 		boolean rta= false;
 		Producto buscado = darProducto(pIdentificador);
-		if (credito.darValorTotal()>= buscado.darPrecio())
+		if (buscado.darCantidadUnidadesDisponibles() > 0 && buscado.darPrecio() <= credito.darValorTotal())
 		{
-			if (buscado.comprar());
-			{
-		double valor = credito.darValorTotal() - buscado.darPrecio();
-		credito.cambiarValor(valor);
-		rta = true;
-			}
+			buscado.comprar();
+			double nuevoCredito = credito.darValorTotal() - buscado.darPrecio();
+			credito = new Monto();
+			credito.cambiarValor(nuevoCredito);
+			rta = true;
+
 		}
 		return rta;
 	}
@@ -193,7 +190,7 @@ public class MaquinaExpendedora
 	{
 		// TODO Parte 3 Punto G: Complete el método según la documentación dada y la definición de la funcionalidad.
 		double suma = producto1.darCantidadUnidadesDisponibles() +producto2.darCantidadUnidadesDisponibles() +producto3.darCantidadUnidadesDisponibles() +producto4.darCantidadUnidadesDisponibles();
-		return ( 100 -( suma / Producto.CAPACIDAD *4 ) *100);
+		return  100 - ( (suma *100)/ (Producto.CAPACIDAD *4) );
 	}
 
 	/**
@@ -205,22 +202,54 @@ public class MaquinaExpendedora
 	{
 		// TODO Parte 3 Punto H: Complete el método según la documentación dada.
 		double donacion = 0;
-		if(producto1.darTipo().equals(pTipo) && producto1.esFopre()== true );
+		double bebida = 0;
+		double comida = 0;
+
+		if(producto1.esFopre()== true && producto1.darTipo() == Tipo.BEBIDA)
 		{
-			donacion += producto1.calcularDonacionFopre();
+			bebida += producto1.calcularDonacionFopre();
 		}
-		if(producto2.darTipo().equals(pTipo) && producto2.esFopre()== true );
+		if(producto1.esFopre()== true && producto1.darTipo() == Tipo.COMIDA)
 		{
-			donacion += producto2.calcularDonacionFopre();
+			comida += producto1.calcularDonacionFopre();
 		}
-		if(producto3.darTipo().equals(pTipo) && producto3.esFopre()== true );
+
+		if(producto2.esFopre()== true && producto2.darTipo() == Tipo.BEBIDA)
 		{
-			donacion += producto3.calcularDonacionFopre();
+			bebida += producto2.calcularDonacionFopre();
 		}
-		if(producto4.darTipo().equals(pTipo) && producto4.esFopre()== true );
+		if(producto2.esFopre()== true && producto2.darTipo() == Tipo.COMIDA)
 		{
-			donacion += producto4.calcularDonacionFopre();
+			comida += producto2.calcularDonacionFopre();
 		}
+
+		if(producto3.esFopre()== true && producto3.darTipo() == Tipo.BEBIDA)
+		{
+			bebida += producto3.calcularDonacionFopre();
+		}
+		if(producto3.esFopre()== true && producto3.darTipo() == Tipo.COMIDA)
+		{
+			comida += producto3.calcularDonacionFopre();
+		}
+
+		if(producto4.esFopre()== true && producto4.darTipo() == Tipo.BEBIDA)
+		{
+			bebida += producto4.calcularDonacionFopre();
+		}
+		if(producto4.esFopre()== true && producto4.darTipo() == Tipo.COMIDA)
+		{
+			comida += producto4.calcularDonacionFopre();
+		}
+
+		if (pTipo == Tipo.BEBIDA)
+		{
+			donacion = bebida;
+		}
+		else if (pTipo == Tipo.COMIDA)
+		{
+			donacion = comida;
+		}
+
 		return donacion;
 	}
 
@@ -232,24 +261,57 @@ public class MaquinaExpendedora
 	public int darCantidadUnidadesCompradasFopre( Tipo pTipo )
 	{
 		// TODO Parte 3 Punto I: Complete el método según la documentación dada.
-		int unidades= 0;
-		if( producto1.esFopre() == true && producto1.darTipo().equals(pTipo));
+		int cantidadUnidades = 0;
+		int bebida = 0;
+		int comida = 0;
+
+		if(producto1.esFopre()== true && producto1.darTipo() == Tipo.BEBIDA)
 		{
-			unidades += producto1.darCantidadUnidadesCompradas( );
+			bebida += producto1.darCantidadUnidadesCompradas();
 		}
-		if( producto2.esFopre() == true && producto2.darTipo().equals(pTipo));
+		if(producto1.esFopre()== true && producto1.darTipo() == Tipo.COMIDA)
 		{
-			unidades += producto2.darCantidadUnidadesCompradas( );
+			comida += producto1.darCantidadUnidadesCompradas();
 		}
-		if( producto3.esFopre() == true && producto3.darTipo().equals(pTipo));
+
+		if(producto2.esFopre()== true && producto2.darTipo() == Tipo.BEBIDA)
 		{
-			unidades += producto3.darCantidadUnidadesCompradas( );
+			bebida += producto2.darCantidadUnidadesCompradas();
 		}
-		if( producto4.esFopre() == true && producto4.darTipo().equals(pTipo));
+		if(producto2.esFopre()== true && producto2.darTipo() == Tipo.COMIDA)
 		{
-			unidades += producto4.darCantidadUnidadesCompradas( );
+			comida += producto2.darCantidadUnidadesCompradas();
 		}
-		return unidades;
+
+		if(producto3.esFopre()== true && producto3.darTipo() == Tipo.BEBIDA)
+		{
+			bebida += producto3.darCantidadUnidadesCompradas();
+		}
+		if(producto3.esFopre()== true && producto3.darTipo() == Tipo.COMIDA)
+		{
+			comida += producto3.darCantidadUnidadesCompradas();
+		}
+
+		if(producto4.esFopre()== true && producto4.darTipo() == Tipo.BEBIDA)
+		{
+			bebida += producto4.darCantidadUnidadesCompradas();
+		}
+		if(producto4.esFopre()== true && producto4.darTipo() == Tipo.COMIDA)
+		{
+			comida += producto4.darCantidadUnidadesCompradas();
+		}
+
+		if (pTipo == Tipo.BEBIDA)
+		{
+			cantidadUnidades = bebida;
+		}
+		else if (pTipo == Tipo.COMIDA)
+		{
+			cantidadUnidades = comida;
+		}
+
+		return cantidadUnidades;
+		
 
 	}
 
